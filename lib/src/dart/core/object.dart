@@ -35,6 +35,13 @@ extension NonNullableObjectExpector<T extends Object> on Expector<T> {
   void isIdenticalTo(T other) {
     test_package.expect(value, test_package.same(other));
   }
+
+  void satisfies(
+    bool Function(T) f, [
+    String description = 'satisfies function',
+  ]) {
+    test_package.expect(value, test_package.predicate(f, description));
+  }
 }
 
 extension NullableExpector<T extends Object> on Expector<T?> {

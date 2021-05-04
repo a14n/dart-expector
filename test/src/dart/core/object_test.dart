@@ -98,6 +98,36 @@ void main() {
       );
     });
   });
+  group('NonNullableObjectExpector.satisfies', () {
+    test('succeeds with a good predicate', () {
+      expect(
+        () => expectThat(1).satisfies((i) => i.isFinite),
+        returnsNormally,
+      );
+    });
+    test('throws with a bad predicate', () {
+      expect(
+        () => expectThat(1).satisfies((i) => i.isInfinite),
+        throwsA(allOf(
+          isA<TestFailure>(),
+          predicate(
+            (e) => (e as TestFailure).message!.contains('satisfies function'),
+          ),
+        )),
+      );
+    });
+    test('throws with a bad predicate and provided message', () {
+      expect(
+        () => expectThat(1).satisfies((i) => i.isInfinite, 'hello world'),
+        throwsA(allOf(
+          isA<TestFailure>(),
+          predicate(
+            (e) => (e as TestFailure).message!.contains('hello world'),
+          ),
+        )),
+      );
+    });
+  });
   group('NullableExpector.isNull', () {
     test('succeeds with null', () {
       expect(
