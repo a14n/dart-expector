@@ -17,10 +17,12 @@ import 'package:test/test.dart' as test_package;
 import '../../expector_base.dart';
 
 extension IntExpector on Expector<int> {
+  /// Checks that the tested int is even.
   void get isEven {
     test_package.expect(value.isEven, true);
   }
 
+  /// Checks that the tested int is odd.
   void get isOdd {
     test_package.expect(value.isOdd, true);
   }

@@ -17,30 +17,37 @@ import 'package:test/test.dart' as test_package;
 import '../../expector_base.dart';
 
 extension NumExpector on Expector<num> {
+  /// Checks that the tested num is negative.
   void get isNegative {
     test_package.expect(value, test_package.isNegative);
   }
 
+  /// Checks that the tested num is not negative.
   void get isNonNegative {
     test_package.expect(value, test_package.isNonNegative);
   }
 
+  /// Checks that the tested num is positive.
   void get isPositive {
     test_package.expect(value, test_package.isPositive);
   }
 
+  /// Checks that the tested num is not positive.
   void get isNonPositive {
     test_package.expect(value, test_package.isNonPositive);
   }
 
+  /// Checks that the tested num is zero.
   void get isZero {
     test_package.expect(value, test_package.isZero);
   }
 
+  /// Checks that the tested num is not zero.
   void get isNonZero {
     test_package.expect(value, test_package.isNonZero);
   }
 
+  /// Checks that the tested num is within [delta] of some [value].
   void closeTo(num value, num delta) {
     test_package.expect(this.value, test_package.closeTo(value, delta));
   }

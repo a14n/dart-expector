@@ -17,12 +17,12 @@ import 'package:test/test.dart' as test_package;
 import '../../expector_base.dart';
 
 extension FunctionExpector on Expector<Function> {
-  /// Checks that the execution of the expected value throws an exception of type [R].
+  /// Checks that the execution of the tested function throws an exception of type [R].
   void throwsA<R>() {
     test_package.expect(value, test_package.throwsA(test_package.isA<R>()));
   }
 
-  /// Checks that the execution of the expected value returns normally.
+  /// Checks that the execution of the tested function returns normally.
   void returnsNormally() {
     test_package.expect(value, test_package.returnsNormally);
   }

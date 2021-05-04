@@ -17,25 +17,30 @@ import 'package:test/test.dart' as test_package;
 import '../../expector_base.dart';
 
 extension ObjectExpector<T extends Object?> on Expector<T> {
+  /// Checks that the tested object is equal to [other].
   void equals(T other) {
     test_package.expect(value, test_package.equals(other));
   }
 }
 
 extension NonNullableObjectExpector<T extends Object> on Expector<T> {
+  /// Checks that the tested object has [R].
   Expector<R> isA<R>() {
     test_package.expect(value, test_package.isA<R>());
     return Expector<R>(value as R);
   }
 
+  /// Checks that the tested object has a runtime type of [type].
   void hasRuntimeType(Type type) {
     test_package.expect(value.runtimeType, test_package.equals(type));
   }
 
+  /// Checks that the tested object is identical to [other].
   void isIdenticalTo(T other) {
     test_package.expect(value, test_package.same(other));
   }
 
+  /// Checks that the tested object satifies a predicate [f].
   void satisfies(
     bool Function(T) f, [
     String description = 'satisfies function',
@@ -45,10 +50,12 @@ extension NonNullableObjectExpector<T extends Object> on Expector<T> {
 }
 
 extension NullableExpector<T extends Object> on Expector<T?> {
+  /// Checks that the tested object is `null`.
   void get isNull {
     test_package.expect(value, test_package.isNull);
   }
 
+  /// Checks that the tested object is not `null`.
   Expector<T> get isNotNull {
     test_package.expect(value, test_package.isNotNull);
     return Expector<T>(value!);

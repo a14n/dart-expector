@@ -17,12 +17,12 @@ import 'package:test/test.dart' as test_package;
 import '../../expector_base.dart';
 
 extension BoolExpector on Expector<bool> {
-  /// Checks that the expected value is `false`.
+  /// Checks that the tested bool is `false`.
   void get isFalse {
     test_package.expect(value, test_package.isFalse);
   }
 
-  /// Checks that the expected value is `true`.
+  /// Checks that the tested bool is `true`.
   void get isTrue {
     test_package.expect(value, test_package.isTrue);
   }

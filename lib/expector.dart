@@ -26,6 +26,7 @@ export 'src/dart/core/bool.dart';
 export 'src/dart/core/double.dart';
 export 'src/dart/core/function.dart';
 export 'src/dart/core/int.dart';
+export 'src/dart/core/iterable.dart';
 export 'src/dart/core/list.dart';
 export 'src/dart/core/map.dart';
 export 'src/dart/core/num.dart';

@@ -17,10 +17,12 @@ import 'package:test/test.dart' as test_package;
 import '../../expector_base.dart';
 
 extension DoubleExpector on Expector<double> {
+  /// Checks that the tested double is the numeric value NaN.
   void get isNaN {
     test_package.expect(value, test_package.isNaN);
   }
 
+  /// Checks that the tested double is not the numeric value NaN.
   void get isNotNaN {
     test_package.expect(value, test_package.isNotNaN);
   }

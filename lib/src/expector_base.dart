@@ -14,8 +14,10 @@
 
 import 'package:meta/meta.dart';
 
+/// Start an expectation about [t].
 Expector<T> expectThat<T>(T t) => Expector<T>(t);
 
+/// The base object containing the [value] to be checked.
 @immutable
 class Expector<T> {
   const Expector(this.value);
