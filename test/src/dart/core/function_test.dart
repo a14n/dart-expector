@@ -20,8 +20,8 @@ void main() {
   group('FunctionExpector.throwsA<R>', () {
     test('succeeds with function that throws an expected type', () {
       expect(
-        () {
-          expectThat(() => throw ArgumentError.notNull())
+        () async {
+          await expectThat(() => throw ArgumentError.notNull())
               .throwsA<ArgumentError>();
         },
         returnsNormally,
@@ -29,16 +29,17 @@ void main() {
     });
     test('throws with function that throws an unexpected type', () {
       expect(
-        () {
-          expectThat(() => throw ArgumentError.notNull()).throwsA<StateError>();
+        () async {
+          await expectThat(() => throw ArgumentError.notNull())
+              .throwsA<StateError>();
         },
         throwsA(isA<TestFailure>()),
       );
     });
     test("throws with function that doesn't throw", () {
       expect(
-        () {
-          expectThat(() {}).throwsA<StateError>();
+        () async {
+          await expectThat(() {}).throwsA<StateError>();
         },
         throwsA(isA<TestFailure>()),
       );
@@ -47,16 +48,17 @@ void main() {
   group('FunctionExpector.returnsNormally', () {
     test('succeeds with function that returns normally', () {
       expect(
-        () {
-          expectThat(() {}).returnsNormally();
+        () async {
+          await expectThat(() {}).returnsNormally();
         },
         returnsNormally,
       );
     });
     test('throws with function that throws', () {
       expect(
-        () {
-          expectThat(() => throw ArgumentError.notNull()).returnsNormally();
+        () async {
+          await expectThat(() => throw ArgumentError.notNull())
+              .returnsNormally();
         },
         throwsA(isA<TestFailure>()),
       );
