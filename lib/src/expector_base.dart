@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import 'package:meta/meta.dart';
+import 'package:test/test.dart' as test;
 
 /// Start an expectation about [t].
 Expector<T> expectThat<T>(T t) => Expector<T>(t);
@@ -22,4 +23,19 @@ Expector<T> expectThat<T>(T t) => Expector<T>(t);
 class Expector<T> {
   const Expector(this.value);
   final T value;
+}
+
+class CaptureValueMatcher extends test.Matcher {
+  CaptureValueMatcher();
+
+  late Object value;
+
+  @override
+  bool matches(item, Map matchState) {
+    value = item;
+    return true;
+  }
+
+  @override
+  test.Description describe(test.Description description) => description;
 }

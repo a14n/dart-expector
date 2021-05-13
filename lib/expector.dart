@@ -33,4 +33,4 @@ export 'src/dart/core/num.dart';
 export 'src/dart/core/object.dart';
 export 'src/dart/core/set.dart';
 export 'src/dart/core/string.dart';
-export 'src/expector_base.dart';
+export 'src/expector_base.dart' hide CaptureValueMatcher;

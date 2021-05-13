@@ -17,9 +17,11 @@ import 'package:test/test.dart' as test;
 import '../../expector_base.dart';
 
 extension FunctionExpector on Expector<Function> {
-  /// Checks that the execution of the tested function throws an exception of type [R].
-  Future<void> throws<R>() async {
-    await test.expectLater(value, test.throwsA(test.isA<R>()));
+  /// Checks that the execution of the tested function throws.
+  Future<Expector<Object>> get throws async {
+    var capture = CaptureValueMatcher();
+    await test.expectLater(value, test.throwsA(capture));
+    return Expector<Object>(capture.value);
   }
 
   /// Checks that the execution of the tested function returns normally.

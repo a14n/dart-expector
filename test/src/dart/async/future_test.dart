@@ -15,6 +15,7 @@
 import 'dart:async';
 
 import 'package:expector/src/dart/async/future.dart';
+import 'package:expector/src/dart/core/object.dart';
 import 'package:expector/src/expector_base.dart';
 import 'package:test/test.dart';
 
@@ -42,19 +43,15 @@ void main() {
   group('FutureExpector.throws', () {
     test('succeeds with Future completed with error', () {
       expect(
-        () => expectThat(Future.error('')).throws<String>(),
+        () async => (await expectThat(Future.error('my bad')).throws)
+            .isA<String>()
+            .equals('my bad'),
         returnsNormally,
       );
     });
     test('throws with Future completed with value', () {
       expect(
-        () => expectThat(Future.value()).throws<String>(),
-        throwsA(isA<TestFailure>()),
-      );
-    });
-    test('throws with Future completed with error of different type', () {
-      expect(
-        () => expectThat(Future.error(true)).throws<String>(),
+        () => expectThat(Future.value()).throws,
         throwsA(isA<TestFailure>()),
       );
     });

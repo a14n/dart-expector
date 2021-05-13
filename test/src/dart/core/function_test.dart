@@ -18,28 +18,18 @@ import 'package:test/test.dart';
 
 void main() {
   group('FunctionExpector.throws<R>', () {
-    test('succeeds with function that throws an expected type', () {
+    test('succeeds with function that throws', () {
       expect(
         () async {
-          await expectThat(() => throw ArgumentError.notNull())
-              .throws<ArgumentError>();
+          await expectThat(() => throw ArgumentError.notNull()).throws;
         },
         returnsNormally,
-      );
-    });
-    test('throws with function that throws an unexpected type', () {
-      expect(
-        () async {
-          await expectThat(() => throw ArgumentError.notNull())
-              .throws<StateError>();
-        },
-        throwsA(isA<TestFailure>()),
       );
     });
     test("throws with function that doesn't throw", () {
       expect(
         () async {
-          await expectThat(() {}).throws<StateError>();
+          await expectThat(() {}).throws;
         },
         throwsA(isA<TestFailure>()),
       );

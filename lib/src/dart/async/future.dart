@@ -22,9 +22,11 @@ extension FutureExpector on Expector<Future> {
     await test.expectLater(value, test.completes);
   }
 
-  /// Checks that the expected value completes successfully with any value.
-  Future<void> throws<R>() async {
-    await test.expectLater(() => value, test.throwsA(test.isA<R>()));
+  /// Checks that the execution of the tested function throws.
+  Future<Expector<Object>> get throws async {
+    var capture = CaptureValueMatcher();
+    await test.expectLater(() => value, test.throwsA(capture));
+    return Expector<Object>(capture.value);
   }
 
   /// Checks that the expected value does not complete.
