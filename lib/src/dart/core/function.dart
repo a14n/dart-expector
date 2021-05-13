@@ -18,7 +18,7 @@ import '../../expector_base.dart';
 
 extension FunctionExpector on Expector<Function> {
   /// Checks that the execution of the tested function throws an exception of type [R].
-  Future<void> throwsA<R>() async {
+  Future<void> throws<R>() async {
     await test.expectLater(value, test.throwsA(test.isA<R>()));
   }
 

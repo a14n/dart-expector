@@ -17,12 +17,12 @@ import 'package:expector/src/expector_base.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('FunctionExpector.throwsA<R>', () {
+  group('FunctionExpector.throws<R>', () {
     test('succeeds with function that throws an expected type', () {
       expect(
         () async {
           await expectThat(() => throw ArgumentError.notNull())
-              .throwsA<ArgumentError>();
+              .throws<ArgumentError>();
         },
         returnsNormally,
       );
@@ -31,7 +31,7 @@ void main() {
       expect(
         () async {
           await expectThat(() => throw ArgumentError.notNull())
-              .throwsA<StateError>();
+              .throws<StateError>();
         },
         throwsA(isA<TestFailure>()),
       );
@@ -39,7 +39,7 @@ void main() {
     test("throws with function that doesn't throw", () {
       expect(
         () async {
-          await expectThat(() {}).throwsA<StateError>();
+          await expectThat(() {}).throws<StateError>();
         },
         throwsA(isA<TestFailure>()),
       );
