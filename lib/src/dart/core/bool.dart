@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension BoolExpector on Expector<bool> {
   /// Checks that the tested bool is `false`.
   void get isFalse {
-    test_package.expect(value, test_package.isFalse);
+    test.expect(value, test.isFalse);
   }
 
   /// Checks that the tested bool is `true`.
   void get isTrue {
-    test_package.expect(value, test_package.isTrue);
+    test.expect(value, test.isTrue);
   }
 }

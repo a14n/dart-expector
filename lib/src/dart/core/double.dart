@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension DoubleExpector on Expector<double> {
   /// Checks that the tested double is the numeric value NaN.
   void get isNaN {
-    test_package.expect(value, test_package.isNaN);
+    test.expect(value, test.isNaN);
   }
 
   /// Checks that the tested double is not the numeric value NaN.
   void get isNotNaN {
-    test_package.expect(value, test_package.isNotNaN);
+    test.expect(value, test.isNotNaN);
   }
 }

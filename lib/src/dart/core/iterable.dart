@@ -12,33 +12,33 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension IterableExpector<T> on Expector<Iterable<T>> {
   /// Checks that the tested iterable is empty.
   void get isEmpty {
-    test_package.expect(value, test_package.isEmpty);
+    test.expect(value, test.isEmpty);
   }
 
   /// Checks that the tested iterable is not empty.
   void get isNotEmpty {
-    test_package.expect(value, test_package.isNotEmpty);
+    test.expect(value, test.isNotEmpty);
   }
 
   /// Checks that the tested iterable has the good [length].
   void hasLength(int length) {
-    test_package.expect(value, test_package.hasLength(length));
+    test.expect(value, test.hasLength(length));
   }
 
   /// Checks that the tested iterable contains [value].
   void contains(T value) {
-    test_package.expect(this.value, test_package.contains(value));
+    test.expect(this.value, test.contains(value));
   }
 
   /// Checks that the tested iterable contains all values provided by [value].
   void containsAll(Iterable<T> value) {
-    test_package.expect(this.value, test_package.containsAll(value));
+    test.expect(this.value, test.containsAll(value));
   }
 }

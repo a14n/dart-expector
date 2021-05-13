@@ -12,32 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension ObjectExpector<T extends Object?> on Expector<T> {
   /// Checks that the tested object is equal to [other].
   void equals(T other) {
-    test_package.expect(value, test_package.equals(other));
+    test.expect(value, test.equals(other));
   }
 }
 
 extension NonNullableObjectExpector<T extends Object> on Expector<T> {
   /// Checks that the tested object has [R].
   Expector<R> isA<R>() {
-    test_package.expect(value, test_package.isA<R>());
+    test.expect(value, test.isA<R>());
     return Expector<R>(value as R);
   }
 
   /// Checks that the tested object has a runtime type of [type].
   void hasRuntimeType(Type type) {
-    test_package.expect(value.runtimeType, test_package.equals(type));
+    test.expect(value.runtimeType, test.equals(type));
   }
 
   /// Checks that the tested object is identical to [other].
   void isIdenticalTo(T other) {
-    test_package.expect(value, test_package.same(other));
+    test.expect(value, test.same(other));
   }
 
   /// Checks that the tested object satifies a predicate [f].
@@ -45,19 +45,19 @@ extension NonNullableObjectExpector<T extends Object> on Expector<T> {
     bool Function(T) f, [
     String description = 'satisfies function',
   ]) {
-    test_package.expect(value, test_package.predicate(f, description));
+    test.expect(value, test.predicate(f, description));
   }
 }
 
 extension NullableExpector<T extends Object> on Expector<T?> {
   /// Checks that the tested object is `null`.
   void get isNull {
-    test_package.expect(value, test_package.isNull);
+    test.expect(value, test.isNull);
   }
 
   /// Checks that the tested object is not `null`.
   Expector<T> get isNotNull {
-    test_package.expect(value, test_package.isNotNull);
+    test.expect(value, test.isNotNull);
     return Expector<T>(value!);
   }
 }

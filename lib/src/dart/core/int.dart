@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension IntExpector on Expector<int> {
   /// Checks that the tested int is even.
   void get isEven {
-    test_package.expect(value.isEven, true);
+    test.expect(value.isEven, true);
   }
 
   /// Checks that the tested int is odd.
   void get isOdd {
-    test_package.expect(value.isOdd, true);
+    test.expect(value.isOdd, true);
   }
 }

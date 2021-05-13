@@ -12,26 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension FutureExpector on Expector<Future> {
   /// Checks that the expected value completes successfully with any value.
   Future<void> get completes async {
-    await test_package.expectLater(value, test_package.completes);
+    await test.expectLater(value, test.completes);
   }
 
   /// Checks that the expected value completes successfully with any value.
   Future<void> throws<R>() async {
-    await test_package.expectLater(
-      () => value,
-      test_package.throwsA(test_package.isA<R>()),
-    );
+    await test.expectLater(() => value, test.throwsA(test.isA<R>()));
   }
 
   /// Checks that the expected value does not complete.
   void get doesNotComplete {
-    test_package.expect(value, test_package.doesNotComplete);
+    test.expect(value, test.doesNotComplete);
   }
 }

@@ -12,44 +12,44 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:test/test.dart' as test_package;
+import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
 extension StringExpector on Expector<String> {
   /// Checks that the tested string is empty.
   void get isEmpty {
-    test_package.expect(value, test_package.isEmpty);
+    test.expect(value, test.isEmpty);
   }
 
   /// Checks that the tested string is not empty.
   void get isNotEmpty {
-    test_package.expect(value, test_package.isNotEmpty);
+    test.expect(value, test.isNotEmpty);
   }
 
   /// Checks that the tested string has the good [length].
   void hasLength(int length) {
-    test_package.expect(value, test_package.hasLength(length));
+    test.expect(value, test.hasLength(length));
   }
 
   /// Checks that the tested string contains the provided [pattern].
   void contains(Pattern pattern) {
-    test_package.expect(value, test_package.contains(pattern));
+    test.expect(value, test.contains(pattern));
   }
 
   /// Checks that the tested string starts with the provided [prefix].
   void startsWith(String prefix) {
-    test_package.expect(value, test_package.startsWith(prefix));
+    test.expect(value, test.startsWith(prefix));
   }
 
   /// Checks that the tested string is equals ignoring case with [other].
   void equalsIgnoringCase(String other) {
-    test_package.expect(value, test_package.equalsIgnoringCase(other));
+    test.expect(value, test.equalsIgnoringCase(other));
   }
 
   /// Checks that the tested string is equals ignoring whitespaces with [other].
   void equalsIgnoringWhitespace(String other) {
-    test_package.expect(value, test_package.equalsIgnoringWhitespace(other));
+    test.expect(value, test.equalsIgnoringWhitespace(other));
   }
 
   /// Checks that the tested string is blank.
