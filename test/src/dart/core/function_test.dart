@@ -17,7 +17,7 @@ import 'package:expector/src/expector_base.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('FunctionExpector.throws<R>', () {
+  group('FunctionExpector.throws', () {
     test('succeeds with function that throws', () {
       expect(
         () async {
