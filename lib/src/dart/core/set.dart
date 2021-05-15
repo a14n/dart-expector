@@ -14,4 +14,5 @@
 
 import '../../expector_base.dart';
 
+/// Expectations for [Set].
 extension SetExpector<T> on Expector<Set<T>> {}

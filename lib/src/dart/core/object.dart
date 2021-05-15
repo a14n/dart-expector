@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for nullable objects.
 extension ObjectExpector<T extends Object?> on Expector<T> {
   /// Checks that the tested object is equal to [other].
   void equals(T other) {
@@ -23,6 +24,7 @@ extension ObjectExpector<T extends Object?> on Expector<T> {
   }
 }
 
+/// Expectations for non nullable objects.
 extension NonNullableObjectExpector<T extends Object> on Expector<T> {
   /// Checks that the tested object has [R].
   Expector<R> isA<R>() {
@@ -49,6 +51,7 @@ extension NonNullableObjectExpector<T extends Object> on Expector<T> {
   }
 }
 
+/// Expectations for objects that can be null.
 extension NullableExpector<T extends Object> on Expector<T?> {
   /// Checks that the tested object is `null`.
   void get isNull {

@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [double].
 extension DoubleExpector on Expector<double> {
   /// Checks that the tested double is the numeric value NaN.
   void get isNaN {

@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [bool].
 extension BoolExpector on Expector<bool> {
   /// Checks that the tested bool is `false`.
   void get isFalse {

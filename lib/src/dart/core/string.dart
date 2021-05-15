@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [String].
 extension StringExpector on Expector<String> {
   /// Checks that the tested string is empty.
   void get isEmpty {

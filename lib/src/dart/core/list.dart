@@ -14,4 +14,5 @@
 
 import '../../expector_base.dart';
 
+/// Expectations for [List].
 extension ListExpector<T> on Expector<List<T>> {}

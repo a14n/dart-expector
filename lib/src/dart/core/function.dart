@@ -17,6 +17,7 @@ import 'package:test/test.dart' as test;
 import '../../capture_value_matcher.dart';
 import '../../expector_base.dart';
 
+/// Expectations for [Function].
 extension FunctionExpector on Expector<Function> {
   /// Checks that the execution of the tested function throws.
   Future<Expector<Object>> get throws async {

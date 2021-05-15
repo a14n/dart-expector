@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [Iterable].
 extension IterableExpector<T> on Expector<Iterable<T>> {
   /// Checks that the tested iterable is empty.
   void get isEmpty {

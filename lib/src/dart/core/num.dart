@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [num].
 extension NumExpector on Expector<num> {
   /// Checks that the tested num is negative.
   void get isNegative {

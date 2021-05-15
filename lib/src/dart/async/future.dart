@@ -17,6 +17,7 @@ import 'package:test/test.dart' as test;
 import '../../capture_value_matcher.dart';
 import '../../expector_base.dart';
 
+/// Expectations for [Future].
 extension FutureExpector on Expector<Future> {
   /// Checks that the expected value completes successfully with any value.
   Future<void> get completes async {

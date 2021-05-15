@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [Map].
 extension MapExpector<K, V> on Expector<Map<K, V>> {
   /// Checks that the tested map is empty.
   void get isEmpty {

@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../expector_base.dart';
 
+/// Expectations for [int].
 extension IntExpector on Expector<int> {
   /// Checks that the tested int is even.
   void get isEven {
