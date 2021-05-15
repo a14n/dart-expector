@@ -1,3 +1,8 @@
+## 0.1.2 (2021-05-15)
+
+- Improve how `.throwsA` works. It now return a future with the catched value.
+- Add `Future.throws` and `Function.throws`.
+
 ## 0.1.1 (2021-05-04)
 
 - Add `NonNullableObjectExpector.satisfies`.
