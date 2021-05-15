@@ -12,14 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:meta/meta.dart';
+import 'package:test/test.dart' as test;
 
-/// Start an expectation about [t].
-Expector<T> expectThat<T>(T t) => Expector<T>(t);
+// A test matcher to capture the value tested.
+class CaptureValueMatcher extends test.Matcher {
+  CaptureValueMatcher();
 
-/// The base object containing the [value] to be checked.
-@immutable
-class Expector<T> {
-  const Expector(this.value);
-  final T value;
+  late Object value;
+
+  @override
+  bool matches(item, Map matchState) {
+    value = item;
+    return true;
+  }
+
+  @override
+  test.Description describe(test.Description description) => description;
 }

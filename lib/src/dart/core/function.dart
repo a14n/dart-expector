@@ -14,6 +14,7 @@
 
 import 'package:test/test.dart' as test;
 
+import '../../capture_value_matcher.dart';
 import '../../expector_base.dart';
 
 extension FunctionExpector on Expector<Function> {
