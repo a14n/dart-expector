@@ -16,22 +16,28 @@ import 'package:test/test.dart' as test;
 
 import '../../capture_value_matcher.dart';
 import '../../expector_base.dart';
+import '../core/object.dart';
 
 /// Expectations for [Future].
 extension FutureExpector on Expector<Future> {
-  /// Checks that the expected value completes successfully with any value.
+  /// Checks that the tested future completes successfully with any value.
   Future<void> get completes async {
     await test.expectLater(value, test.completes);
   }
 
-  /// Checks that the execution of the tested function throws.
+  /// Checks that the tested future completes with an error.
   Future<Expector<Object>> get throws async {
     var capture = CaptureValueMatcher();
     await test.expectLater(() => value, test.throwsA(capture));
     return Expector<Object>(capture.value);
   }
 
-  /// Checks that the expected value does not complete.
+  /// Checks that the tested future completes with an error of type [T].
+  Future<Expector<T>> throwsA<T>() async {
+    return (await throws).isA<T>();
+  }
+
+  /// Checks that the tested future does not complete.
   void get doesNotComplete {
     test.expect(value, test.doesNotComplete);
   }

@@ -16,6 +16,7 @@ import 'package:test/test.dart' as test;
 
 import '../../capture_value_matcher.dart';
 import '../../expector_base.dart';
+import '../core/object.dart';
 
 /// Expectations for [Function].
 extension FunctionExpector on Expector<Function> {
@@ -24,6 +25,11 @@ extension FunctionExpector on Expector<Function> {
     var capture = CaptureValueMatcher();
     await test.expectLater(value, test.throwsA(capture));
     return Expector<Object>(capture.value);
+  }
+
+  /// Checks that the execution of the tested function throws an error of type [T].
+  Future<Expector<T>> throwsA<T>() async {
+    return (await throws).isA<T>();
   }
 
   /// Checks that the execution of the tested function returns normally.

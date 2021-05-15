@@ -35,6 +35,33 @@ void main() {
       );
     });
   });
+  group('FunctionExpector.throwsA', () {
+    test('succeeds with function that throws', () {
+      expect(
+        () async {
+          await expectThat(() => throw ArgumentError.notNull())
+              .throwsA<ArgumentError>();
+        },
+        returnsNormally,
+      );
+    });
+    test("throws with function that doesn't throw", () {
+      expect(
+        () async {
+          await expectThat(() {}).throwsA<ArgumentError>();
+        },
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test("throws with function that doesn't throw the good type", () {
+      expect(
+        () async {
+          await expectThat(() => throw StateError('')).throwsA<ArgumentError>();
+        },
+        throwsA(isA<TestFailure>()),
+      );
+    });
+  });
   group('FunctionExpector.returnsNormally', () {
     test('succeeds with function that returns normally', () {
       expect(
