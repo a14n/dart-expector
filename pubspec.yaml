@@ -1,6 +1,6 @@
 name: expector
 description: A package to write tests in a fluent manner and more easily.
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/a14n/dart-expector
 
 environment:
