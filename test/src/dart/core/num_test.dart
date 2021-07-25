@@ -300,9 +300,161 @@ void main() {
         throwsA(isA<TestFailure>()),
       );
     });
-    test('throws with int double not closed', () {
+    test('throws with double not closed', () {
       expect(
         () => expectThat(11.1).closeTo(2.2, 3.3),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+  });
+  group('NumExpector.lessThan', () {
+    test('succeeds with int value lower', () {
+      expect(
+        () => expectThat(1).lessThan(2),
+        returnsNormally,
+      );
+    });
+    test('succeeds with double value lower', () {
+      expect(
+        () => expectThat(1.1).lessThan(1.2),
+        returnsNormally,
+      );
+    });
+    test('throws with int value greater', () {
+      expect(
+        () => expectThat(3).lessThan(2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with double greater', () {
+      expect(
+        () => expectThat(2.3).lessThan(2.2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with int value equals', () {
+      expect(
+        () => expectThat(1).lessThan(1),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with double value equals', () {
+      expect(
+        () => expectThat(2.2).lessThan(2.2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+  });
+  group('NumExpector.lessThanOrEqualTo', () {
+    test('succeeds with int value lower', () {
+      expect(
+        () => expectThat(1).lessThanOrEqualTo(2),
+        returnsNormally,
+      );
+    });
+    test('succeeds with double value lower', () {
+      expect(
+        () => expectThat(1.1).lessThanOrEqualTo(1.2),
+        returnsNormally,
+      );
+    });
+    test('succeeds with int value equals', () {
+      expect(
+        () => expectThat(1).lessThanOrEqualTo(1),
+        returnsNormally,
+      );
+    });
+    test('succeeds with double value equals', () {
+      expect(
+        () => expectThat(1.1).lessThanOrEqualTo(1.1),
+        returnsNormally,
+      );
+    });
+    test('throws with int value greater', () {
+      expect(
+        () => expectThat(3).lessThanOrEqualTo(2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with double greater', () {
+      expect(
+        () => expectThat(2.3).lessThanOrEqualTo(2.2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+  });
+  group('NumExpector.greaterThan', () {
+    test('succeeds with int value greater', () {
+      expect(
+        () => expectThat(1).greaterThan(0),
+        returnsNormally,
+      );
+    });
+    test('succeeds with double value greater', () {
+      expect(
+        () => expectThat(1.1).greaterThan(1.0),
+        returnsNormally,
+      );
+    });
+    test('throws with int value lower', () {
+      expect(
+        () => expectThat(3).greaterThan(4),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with double lower', () {
+      expect(
+        () => expectThat(2.3).greaterThan(2.4),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with int value equals', () {
+      expect(
+        () => expectThat(1).greaterThan(1),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with double value equals', () {
+      expect(
+        () => expectThat(2.2).greaterThan(2.2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+  });
+  group('NumExpector.greaterThanOrEqualTo', () {
+    test('succeeds with int value greater', () {
+      expect(
+        () => expectThat(1).greaterThanOrEqualTo(0),
+        returnsNormally,
+      );
+    });
+    test('succeeds with double value greater', () {
+      expect(
+        () => expectThat(1.1).greaterThanOrEqualTo(1.0),
+        returnsNormally,
+      );
+    });
+    test('succeeds with int value equals', () {
+      expect(
+        () => expectThat(1).greaterThanOrEqualTo(1),
+        returnsNormally,
+      );
+    });
+    test('succeeds with double value equals', () {
+      expect(
+        () => expectThat(1.1).greaterThanOrEqualTo(1.1),
+        returnsNormally,
+      );
+    });
+    test('throws with int value lower', () {
+      expect(
+        () => expectThat(3).greaterThanOrEqualTo(4),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with double lower', () {
+      expect(
+        () => expectThat(2.3).greaterThanOrEqualTo(2.4),
         throwsA(isA<TestFailure>()),
       );
     });

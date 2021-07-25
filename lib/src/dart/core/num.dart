@@ -17,7 +17,7 @@ import 'package:test/test.dart' as test;
 import '../../expector_base.dart';
 
 /// Expectations for [num].
-extension NumExpector on Expector<num> {
+extension NumExpector<T extends num> on Expector<T> {
   /// Checks that the tested num is negative.
   void get isNegative {
     test.expect(value, test.isNegative);
@@ -49,7 +49,27 @@ extension NumExpector on Expector<num> {
   }
 
   /// Checks that the tested num is within [delta] of some [value].
-  void closeTo(num value, num delta) {
+  void closeTo(T value, T delta) {
     test.expect(this.value, test.closeTo(value, delta));
+  }
+
+  /// Checks that the tested num is less than the given [value].
+  void lessThan(T value) {
+    test.expect(this.value, test.lessThan(value));
+  }
+
+  /// Checks that the tested num is less than or equal to the given [value].
+  void lessThanOrEqualTo(T value) {
+    test.expect(this.value, test.lessThanOrEqualTo(value));
+  }
+
+  /// Checks that the tested num is greater than the given [value].
+  void greaterThan(T value) {
+    test.expect(this.value, test.greaterThan(value));
+  }
+
+  /// Checks that the tested num is greater than or equal to the given [value].
+  void greaterThanOrEqualTo(T value) {
+    test.expect(this.value, test.greaterThanOrEqualTo(value));
   }
 }
