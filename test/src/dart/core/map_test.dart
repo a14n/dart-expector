@@ -73,4 +73,24 @@ void main() {
       );
     });
   });
+  group('MapExpector.containsPair', () {
+    test('succeeds with the good key-value', () {
+      expect(
+        () => expectThat({1: 2}).containsPair(1, 2),
+        returnsNormally,
+      );
+    });
+    test('throws with a good key but a bad value', () {
+      expect(
+        () => expectThat({1: 2}).containsPair(1, 1),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+    test('throws with a bad key', () {
+      expect(
+        () => expectThat({1: 2}).containsPair(2, 2),
+        throwsA(isA<TestFailure>()),
+      );
+    });
+  });
 }

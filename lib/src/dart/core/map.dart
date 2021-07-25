@@ -33,8 +33,13 @@ extension MapExpector<K, V> on Expector<Map<K, V>> {
     test.expect(value, test.hasLength(length));
   }
 
-  /// Checks that the tested map contains a key [key].
+  /// Checks that the tested map contains a [key].
   void containsKey(K key) {
     test.expect(value, test.contains(key));
+  }
+
+  /// Checks that the tested map contains the [key]-[value] pair.
+  void containsPair(K key, V value) {
+    test.expect(this.value, test.containsPair(key, value));
   }
 }
