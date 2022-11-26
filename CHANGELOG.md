@@ -1,3 +1,8 @@
+## 0.1.4 (2022-11-26)
+
+- Update license file to be recognized by pub.dev.
+- Apply stricter language rules on code.
+
 ## 0.1.3 (2021-07-25)
 
 - Add `MapExpector.containsPair`.
