@@ -23,19 +23,19 @@ void main() {
   group('FutureExpector.completes', () {
     test('succeeds with Future completed with value', () {
       expect(
-        () => expectThat(Future.value()).completes,
+        () => expectThat(Future<void>.value()).completes,
         returnsNormally,
       );
     });
     test('throws with Future completed with error', () {
       expect(
-        () => expectThat(Future.error('')).completes,
+        () => expectThat(Future<void>.error('')).completes,
         throwsA(isA<String>()),
       );
     });
     test('throws with Future not completed', () async {
       expect(
-        expectThat(Completer().future).completes,
+        expectThat(Completer<void>().future).completes,
         throwsA(isA<TestFailure>()),
       );
     }, skip: true); // how to test that ?
@@ -43,7 +43,7 @@ void main() {
   group('FutureExpector.throws', () {
     test('succeeds with Future completed with error', () {
       expect(
-        () async => (await expectThat(Future.error('my bad')).throws)
+        () async => (await expectThat(Future<void>.error('my bad')).throws)
             .isA<String>()
             .equals('my bad'),
         returnsNormally,
@@ -51,13 +51,13 @@ void main() {
     });
     test('throws with Future completed with value', () {
       expect(
-        () => expectThat(Future.value()).throws,
+        () => expectThat(Future<void>.value()).throws,
         throwsA(isA<TestFailure>()),
       );
     });
     test('throws with Future not completed', () async {
       expect(
-        expectThat(Completer().future).throws,
+        expectThat(Completer<void>().future).throws,
         throwsA(isA<TestFailure>()),
       );
     }, skip: true); // how to test that ?
@@ -65,15 +65,16 @@ void main() {
   group('FutureExpector.throwsA', () {
     test('succeeds with Future completed with error of the good type', () {
       expect(
-        () async => (await expectThat(Future.error('my bad')).throwsA<String>())
-            .isA<String>()
-            .equals('my bad'),
+        () async =>
+            (await expectThat(Future<void>.error('my bad')).throwsA<String>())
+                .isA<String>()
+                .equals('my bad'),
         returnsNormally,
       );
     });
     test('throws with Future completed with value', () {
       expect(
-        () => expectThat(Future.value()).throwsA<String>(),
+        () => expectThat(Future<void>.value()).throwsA<String>(),
         throwsA(isA<TestFailure>()),
       );
     });
@@ -85,7 +86,7 @@ void main() {
     });
     test('throws with Future not completed', () async {
       expect(
-        expectThat(Completer().future).throwsA<String>(),
+        expectThat(Completer<void>().future).throwsA<String>(),
         throwsA(isA<TestFailure>()),
       );
     }, skip: true); // how to test that ?
@@ -93,7 +94,7 @@ void main() {
   group('FutureExpector.doesNotComplete', () {
     test('succeeds with Future not completed', () {
       expect(
-        () => expectThat(Completer().future).doesNotComplete,
+        () => expectThat(Completer<void>().future).doesNotComplete,
         returnsNormally,
       );
     });
@@ -105,7 +106,7 @@ void main() {
     }, skip: true); // how to test that ?
     test('throws with Future completed with error', () {
       expect(
-        () => expectThat(Future.error('')).doesNotComplete,
+        () => expectThat(Future<void>.error('')).doesNotComplete,
         throwsA(isA<TestFailure>()),
       );
     }, skip: true); // how to test that ?

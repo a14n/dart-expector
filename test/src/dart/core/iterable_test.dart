@@ -20,7 +20,7 @@ void main() {
   group('IterableExpector.isEmpty', () {
     test('succeeds with empty list', () {
       expect(
-        () => expectThat([]).isEmpty,
+        () => expectThat(<int>[]).isEmpty,
         returnsNormally,
       );
     });
@@ -52,7 +52,7 @@ void main() {
     });
     test('throws with empty list', () {
       expect(
-        () => expectThat([]).isNotEmpty,
+        () => expectThat(<int>[]).isNotEmpty,
         throwsA(isA<TestFailure>()),
       );
     });

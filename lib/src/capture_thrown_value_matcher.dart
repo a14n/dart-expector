@@ -15,14 +15,14 @@
 import 'package:test/test.dart' as test;
 
 // A test matcher to capture the value tested.
-class CaptureValueMatcher extends test.Matcher {
-  CaptureValueMatcher();
+class CaptureThrownValueMatcher extends test.Matcher {
+  CaptureThrownValueMatcher();
 
   late Object value;
 
   @override
-  bool matches(item, Map matchState) {
-    value = item;
+  bool matches(Object? item, Map<dynamic, dynamic> matchState) {
+    value = item!;
     return true;
   }
 

@@ -20,7 +20,7 @@ void main() {
   group('MapExpector.isEmpty', () {
     test('succeeds with empty set', () {
       expect(
-        () => expectThat({}).isEmpty,
+        () => expectThat(<int, int>{}).isEmpty,
         returnsNormally,
       );
     });
@@ -40,7 +40,7 @@ void main() {
     });
     test('throws with empty set', () {
       expect(
-        () => expectThat({}).isNotEmpty,
+        () => expectThat(<int, int>{}).isNotEmpty,
         throwsA(isA<TestFailure>()),
       );
     });

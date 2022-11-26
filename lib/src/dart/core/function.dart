@@ -14,7 +14,7 @@
 
 import 'package:test/test.dart' as test;
 
-import '../../capture_value_matcher.dart';
+import '../../capture_thrown_value_matcher.dart';
 import '../../expector_base.dart';
 import '../core/object.dart';
 
@@ -22,7 +22,7 @@ import '../core/object.dart';
 extension FunctionExpector on Expector<Function> {
   /// Checks that the execution of the tested function throws.
   Future<Expector<Object>> get throws async {
-    var capture = CaptureValueMatcher();
+    var capture = CaptureThrownValueMatcher();
     await test.expectLater(value, test.throwsA(capture));
     return Expector<Object>(capture.value);
   }
